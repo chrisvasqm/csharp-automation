@@ -18,11 +18,19 @@ namespace CSharpAutomation
         }
 
         [Test]
-        public void Google_CanNavigateToSearchPage()
+        public void Open_CanNavigateToSearchPage()
         {
             _google.Open();
 
             Assert.AreEqual("https://www.google.com/", _driver.Url);
+        }
+
+        [Test]
+        public void SearchFor_CanSearchForWebsite()
+        {
+            _google.SearchFor("udemy");
+
+            Assert.That(_google.IsUdemyCardTitleDisplayed(), Is.True);
         }
 
         [TearDown]
